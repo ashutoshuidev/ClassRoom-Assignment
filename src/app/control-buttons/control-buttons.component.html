@@ -1,0 +1,17 @@
+<div>
+ 
+<button type="button" id = "btnShowList" class="btn btn-default" (click) = "showList()">
+    Show List</button>
+    <button type="button" id = "btnAddItemToList" class="btn btn-default" (click) = "showAddEditDialog()">
+    Add New Item</button>
+
+</div>
+    <div *ngIf="showListFlag==true">
+    <app-product></app-product>
+</div>
+
+<div *ngIf="showAddEditFlag==true">
+    <app-modifyoptions></app-modifyoptions>
+</div>
+
+

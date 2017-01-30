@@ -1,0 +1,96 @@
+
+<!--In a Property Binding, a value flows from the model to a target property on screen. We identify that target property by surrounding its name in brackets, []. This is a one-way data binding from the model to the view.
+
+In an Event Binding, we flow the value from the target property on screen to the model. We identify that target property by surrounding its name in parentheses, (). This is a one-way data binding in the opposite direction from the view to the model.
+
+-->
+
+<!--<label>Id</label>
+<input type = "text" id = "itemId" [(ngModel)] = "dataToEdit.itemId">-->
+
+<!--<label>Price</label>
+<input type = "text" id = "itemPrice" [value] = "dataToEdit.price" (input)="newItemData.price = $event.target.value">
+<label>Name</label>
+<input type = "text" id = "itemPrice" [value] = "dataToEdit.name" (input)="newItemData.name = $event.target.value">
+<label>Brand</label>
+<input type = "text" id = "itemPrice" [value] = "dataToEdit.brand" (input)="newItemData.brand = $event.target.value">
+<label>Description</label>
+<input type = "text" id = "itemPrice" [value] = "dataToEdit.description" (input)="newItemData.description = $event.target.value">-->
+
+<!--<label>Price</label>
+<input
+type = "text"
+id = "itemPrice"
+[ngModel] = "dataToEdit.price"
+(ngModelChange)="dataToEdit.price = $event">
+
+<label>Name</label>
+<input
+type = "text"
+id = "itemName"
+[ngModel] = "dataToEdit.name"
+(ngModelChange)="dataToEdit.name = $event">
+
+<label>Brand</label>
+<input
+type = "text"
+id = "itemBrand"
+[ngModel] = "dataToEdit.brand"
+(ngModelChange)="dataToEdit.brand = $event">
+
+<label>Description</label>
+<input
+type = "text"
+id = "itemDescription"
+[ngModel] = "dataToEdit.description"
+(ngModelChange)="dataToEdit.description = $event">-->
+
+<!--<label> Price </label>
+<input type = "text" id = "itemPrice" [(ngModel)] =  "dataToEdit. price">
+<label>Name</label>
+<input type = "text" id = "itemName" [(ngModel)] =  "dataToEdit.name">
+<label>Brand</label>
+<input type = "text" id = "itemBrand" [(ngModel)] =  "dataToEdit.brand">
+<label>Description</label>
+<input type = "text" id = "itemDescription" [(ngModel)] =  "dataToEdit.description" >
+
+<button type="button" id = "btnSaveItem" (click) = "addNewItems()"
+  class="navbar-toggle collapsed"
+  data-toggle="collapse">
+    Save</button>-->
+
+
+
+<div class  = "container">
+  <h1>Add/Edit</h1>
+  <form (ngSubmit) = "onSubmit()"  #addEditForm = "ngForm">
+    <div class="form-group">
+<label> Price </label>
+<input type = "text" #input id = "itemPrice" [(ngModel)] =  "dataToEdit. price" name = "price" #price="ngModel" required>
+<div [hidden]="price.valid || price.pristine"
+             class="alert alert-danger">
+          Price is required
+        </div>
+    </div>
+    <div class="form-group">
+<label>Name</label>
+<input type = "text" id = "itemName" [(ngModel)] =  "dataToEdit.name" name = "name" required>
+    </div>
+    <div class="form-group">
+<label>Brand</label>
+<input type = "text" id = "itemBrand" [(ngModel)] =  "dataToEdit.brand" name = "brand" required>
+    </div>
+    <div class="form-group">
+<label>Desc</label>
+<input type = "text" id = "itemDescription" [(ngModel)] =  "dataToEdit.description" name = "Description" >
+    </div>
+<div>
+<!--<button type="submit" id = "btnSaveItem" class="btn btn-default" (click) = "addNewItems()" [disabled]="!addEditForm.form.valid"-->
+    <button type="submit" id = "btnSaveItem" [disabled]="!addEditForm.form.valid">
+    Save</button>
+</div>
+
+  </form>
+
+</div>
+

@@ -1,0 +1,30 @@
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>id</th>
+      <th>Price</th>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of jsonProductList" >
+      <td>#</td>
+      <td>{{item._id}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.brand}}</td>
+      <td>{{item.description}}</td>
+      <td><button type="button" id = "btnEditItem" (click) =  "showEditDialog(item)">
+    Edit</button></td>
+    </tr>
+  </tbody>
+</table> 
+
+<div *ngIf="showEditFlag==true">
+    <app-modifyoptions [dataToEdit] = "item" (emitResult) = "getOption($event)"></app-modifyoptions>
+</div>
+
